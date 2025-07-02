@@ -1,0 +1,164 @@
+/* Additional custom styles can be added here */
+
+/* Glass effect for dark mode */
+.dark .glass-container {
+    background: rgba(17, 24, 39, 0.7) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Default glass effect for light mode */
+.glass-container {
+    background: rgba(249, 250, 251, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Cursor glow transition */
+.cursor-glow {
+    will-change: transform;
+    pointer-events: none;
+}
+
+/* Dark mode cursor glow */
+.dark-glow {
+    mix-blend-mode: lighten;
+    opacity: 0.8;
+}
+
+/* Light mode cursor glow */
+.light-glow {
+    mix-blend-mode: multiply;
+    opacity: 0.7;
+}
+
+/* Adjust glow intensity based on device */
+@media (max-width: 768px) {
+    .cursor-glow {
+        opacity: 0.5;
+    }
+}
+
+/* Dark mode text selection - Programmer */
+.dark *::selection {
+    background-color: rgba(59, 130, 246, 0.4);
+    color: white;
+}
+
+/* Dark mode text selection - 3D Artist */
+.dark[data-role="3D Artist"] *::selection {
+    background-color: rgba(220, 38, 38, 0.4);
+    color: white;
+}
+
+
+/* Custom text selection for light mode - Programmer */
+*::selection {
+    background-color: rgba(59, 130, 246, 0.8);
+    /* blue-500 with high opacity */
+    color: white;
+}
+
+/* Custom text selection for light mode - 3D Artist */
+[data-role="3D Artist"] *::selection {
+    background-color: rgba(220, 38, 38, 0.8);
+    /* red-600 with high opacity */
+    color: white;
+}
+
+/* Waving hand animation */
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(14deg);
+    }
+
+    20% {
+        transform: rotate(-8deg);
+    }
+
+    30% {
+        transform: rotate(14deg);
+    }
+
+    40% {
+        transform: rotate(-4deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    60% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.waving-hand {
+    display: inline-block;
+    animation: wave 3s ease-in-out infinite;
+    transform-origin: 70% 70%;
+    /* Pivot from bottom right of the hand */
+}
+
+/* Reveal effect for project cards */
+.reveal-card-overlay {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .reveal-card-overlay {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
+}
+
+.reveal-card:hover .reveal-card-overlay {
+    opacity: 0;
+}
+
+/* Cursor glow variations for light mode */
+/* Light mode cursor glow */
+.cursor-glow.programmer-glow {
+    background: radial-gradient(circle,
+            rgba(59, 130, 246, 0.2) 0%,
+            rgba(59, 130, 246, 0.1) 30%,
+            rgba(59, 130, 246, 0) 90%);
+    mix-blend-mode: multiply;
+    filter: blur(12px);
+}
+
+.cursor-glow.artist-glow {
+    background: radial-gradient(circle,
+            rgba(220, 38, 38, 0.2) 0%,
+            rgba(220, 38, 38, 0.1) 30%,
+            rgba(220, 38, 38, 0) 90%);
+    mix-blend-mode: multiply;
+    filter: blur(12px);
+}
+
+/* Dark mode cursor glow remains unchanged */
+:root[class~="dark"] .cursor-glow.programmer-glow {
+    background: radial-gradient(circle,
+            rgba(59, 130, 246, 0.2) 0%,
+            rgba(59, 130, 246, 0.1) 30%,
+            rgba(59, 130, 246, 0) 90%);
+    mix-blend-mode: lighten;
+}
+
+:root[class~="dark"] .cursor-glow.artist-glow {
+    background: radial-gradient(circle,
+            rgba(220, 38, 38, 0.2) 0%,
+            rgba(220, 38, 38, 0.1) 30%,
+            rgba(220, 38, 38, 0) 90%);
+    mix-blend-mode: lighten;
+}

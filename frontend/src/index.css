@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    font-family: 'Inter', sans-serif;
+}
+
+@layer base {
+    body {
+        @apply bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark;
+    }
+}
+
+@layer components {
+    .container {
+        @apply px-4 mx-auto max-w-7xl;
+    }
+
+    .btn {
+        @apply px-4 py-2 font-medium transition-colors rounded-md;
+    }
+
+    .btn-primary {
+        @apply text-white bg-primary-light hover:bg-blue-600 dark:bg-primary-dark dark:hover:bg-blue-400;
+    }
+}
+
+/* Full-width banner that extends beyond container */
+@media (min-width: 768px) {
+    .banner-container {
+        position: fixed;
+        top: 0;
+        left: 2.5rem; /* mx-10 */
+        right: 2.5rem; /* mx-10 */
+        width: auto;
+        height: 100vh;
+        z-index: -1;
+        overflow: hidden;
+        margin-top: 2.5rem; /* mt-10 */
+    }
+
+}
+
+@media (max-width: 767px) {
+    .banner-container {
+        position: absolute;
+        top: 16px;
+        left: 0;
+        right: 0;
+        height: 200px;
+        z-index: -1; /* Changed to -1 to be below content */
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        overflow: visible;
+        opacity: 0.8; /* Slightly transparent so content is still visible */
+        pointer-events: none; /* Allow clicks to pass through */
+    }
+    .banner-gradient {
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
+}
+
+
+
+.banner-gradient {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .banner-gradient {
+        width: 100%;
+        height: 100%;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 0;
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        /* Mask: fade out from bottom AND from right */
+        mask-image: linear-gradient(to right, black 70%, transparent 100%),
+            linear-gradient(to bottom, black 20%, transparent 50%);
+        -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%),
+            linear-gradient(to bottom, black 20%, transparent 50%);
+        mask-composite: intersect;
+        -webkit-mask-composite: destination-in;
+    }
+
+    .programmer-gradient {
+        background-image: url('https://res.cloudinary.com/dvb5mesnd/image/upload/v1751384940/Screenshot_2025-07-01_211806_mfx7pd.png');
+    }
+
+    .artist-gradient {
+        background-image: url('https://res.cloudinary.com/dvb5mesnd/image/upload/v1751385585/Screenshot_2025-07-01_212928_eaczm2.png');
+    }
+}
+
+@media (max-width: 767px) {
+    .banner-gradient {
+        width: 100%;
+        height: 100%;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        /* Mobile: fade bottom only (you can also add right fade if needed) */
+        mask-image: linear-gradient(to bottom, black 60%, transparent 90%);
+        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 90%);
+        mask-composite: intersect;
+        -webkit-mask-composite: destination-in;
+    }
+
+    .programmer-gradient {
+        background-image: url('https://res.cloudinary.com/dvb5mesnd/image/upload/v1751384940/Screenshot_2025-07-01_211806_mfx7pd.png');
+    }
+
+    .artist-gradient {
+        background-image: url('https://res.cloudinary.com/dvb5mesnd/image/upload/v1751385585/Screenshot_2025-07-01_212928_eaczm2.png');
+    }
+}
+
+/* Smooth transitions for theme switching */
+* {
+    transition: background-color 0.3s, border-color 0.3s;
+}

@@ -1,0 +1,85 @@
+/* Project Card Styles */
+.reveal-card {
+    position: relative;
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
+}
+
+.reveal-card:hover {
+    transform: translateY(-5px) scale(1.03);
+}
+
+/* Image container styles */
+.reveal-card .image-container {
+    overflow: hidden;
+    position: relative;
+}
+
+/* Overlay effects - opposite for light/dark mode */
+.light-theme .reveal-card-overlay {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.8));
+}
+
+.dark-theme .reveal-card-overlay {
+    background: linear-gradient(to bottom, rgba(17, 24, 39, 0.3), rgba(17, 24, 39, 0.7));
+}
+
+/* Card hover effects */
+.reveal-card:hover .card-image {
+    transform: scale(1.1);
+}
+
+/* Tech tag styles - opposite for light/dark modes */
+.tech-tag {
+    transition: all 0.3s ease;
+}
+
+.light-theme .tech-tag:hover {
+    background-color: #e0f2fe;
+    color: #1e40af;
+}
+
+.dark-theme .tech-tag:hover {
+    background-color: #1e3a8a;
+    color: #93c5fd;
+}
+
+/* Link hover effects - opposite for light/dark modes */
+.light-theme .card-link:hover {
+    color: #2563eb;
+}
+
+.dark-theme .card-link:hover {
+    color: #60a5fa;
+}
+
+/* Title overlay - with backdrop blur for a frosted glass effect */
+.title-overlay {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+.light-theme .title-overlay {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.dark-theme .title-overlay {
+    background-color: rgba(17, 24, 39, 0.7);
+}
+
+/* Card border glow effect on hover - opposite for light/dark mode */
+.light-theme .reveal-card:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.dark-theme .reveal-card:hover {
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.2);
+}
+
+/* Background styles */
+.dark-theme.reveal-card {
+    background-color: rgba(17, 24, 39, 0.8);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
