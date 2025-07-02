@@ -12,6 +12,7 @@ import ReactDOM from 'react-dom';
 // Lazy load ReactQuill
 const ReactQuill = lazy(() => import('react-quill'));
 
+const API_BASE = import.meta.env.VITE_SERVER_URI;
 const CLOUDINARY_UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
 const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
 
@@ -120,7 +121,7 @@ const ContactMe = ({ activeRole }: { activeRole: 'Programmer' | '3D Artist' }) =
         setSuccess('');
         setError('');
         try {
-            await axios.post('/api/contact', data);
+            await axios.post(`${API_BASE}/api/contact`, data);
             setShowModal(true); // Show modal on success
             reset();
         } catch (err) {
