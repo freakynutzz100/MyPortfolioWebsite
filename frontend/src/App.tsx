@@ -12,6 +12,7 @@ import Resume from './pages/Resume';
 import ContactMe from './pages/ContactMe';
 import './App.css';
 
+
 const App: React.FC = () => {
     const [isDarkMode, setIsDarkMode] = useState(() => {
         return localStorage.getItem('theme') === 'dark';
