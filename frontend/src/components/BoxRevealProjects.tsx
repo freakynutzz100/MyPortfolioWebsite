@@ -136,7 +136,7 @@ const BoxRevealProjects = ({ projects }: BoxRevealProjectsProps) => {
                             zIndex: 1
                         }}
                     >
-                        <RevealProjectCard project={project} />
+                        {/* <RevealProjectCard project={project}/> */}
                     </div>
                 ))}
             </div>
